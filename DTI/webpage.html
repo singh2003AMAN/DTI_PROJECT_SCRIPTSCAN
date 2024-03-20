@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ParallelPharmacy</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  .container {
+    max-width: 800px;
+    margin: auto; /* Center horizontally */
+    margin-top: 100px; /* Adjust the top margin as needed */
+    padding: 50px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide overflow from shadow */
+}
+  h1 {
+    color: #085749;
+    font-size: 40px;
+    margin-bottom: 40px;
+	margin-left:80px;
+  }
+  .options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+  }
+  .option {
+    width: 30%;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+  }
+  .option:hover {
+    background-color: #333;
+    color: #fff;
+    transform: translateY(-5px);
+  }
+  .option h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  .option p {
+    margin: 0;
+    font-size: 16px;
+  }
+  .option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .option:hover::before {
+    opacity: 1;
+  }
+  .logo {
+    position: absolute;
+    top: 70px;
+    left: 330px;
+    width: 130px;
+    height: auto;
+    z-index: 1;
+    transition: transform 0.3s ease; /* Add animation to logo */
+  }
+</style>
+</head>
+<body>
+<div class="container">
+    <img src="logo.png" alt="ParallelPharmacy Logo" class="logo">
+    <h1>Welcome to ParallelPharmacy</h1>
+    <div class="options">
+      <div class="option" onclick="redirectToScan()">
+        <h2>Scan</h2>
+        <p>Scan your prescription</p>
+      </div>
+      <div class="option" onclick="redirectToCompare()">
+        <h2>Compare</h2>
+        <p>Compare medications</p>
+      </div>
+      <div class="option" onclick="redirectToXRay()">
+        <h2>X-Ray</h2>
+        <p>Free diagnosis</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function redirectToScan() {
+      // Redirect to the scan page
+      window.location.href = "scan.html";
+    }
+
+    function redirectToCompare() {
+      // Redirect to the compare page
+      window.location.href = "compare.html";
+    }
+
+    function redirectToXRay() {
+      // Redirect to the x-ray page
+      window.location.href = "xray.html";
+    }
+
+    // Add animation to logo on hover
+    const logo = document.querySelector('.logo');
+    logo.addEventListener('mouseenter', () => {
+      logo.style.transform = 'scale(1.1)';
+    });
+    logo.addEventListener('mouseleave', () => {
+      logo.style.transform = 'scale(1)';
+    });
+  </script>
+</body>
+</html>

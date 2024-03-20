@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scan your prescription- ParallelPharmacy</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 600px; /* Increase the max-width */
+    width: 80%; /* Set width to a percentage */
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    color: #085749;
+    font-size: 32px;
+    margin-bottom: 90px;
+  }
+  .options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+  .option {
+    width: 45%;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #fff;
+  }
+  .option:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  .option h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  .option p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+  }
+  .logo {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    animation: floatLogo 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes floatLogo {
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(-40%);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="ParallelPharmacy Logo" class="logo">
+    <h1>Scan Your Prescription</h1>
+    <div class="options">
+      <div class="option" onclick="useCamera()">
+        <h2>Camera</h2>
+        <p>Use camera to scan</p>
+      </div>
+      <div class="option" onclick="useGallery()">
+        <h2>Gallery</h2>
+        <p>Select from gallery</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function useCamera() {
+      // Your logic to use camera
+      alert("Using camera for scanning...");
+    }
+
+    function useGallery() {
+      // Your logic to select from gallery
+      alert("Selecting from gallery...");
+    }
+  </script>
+</body>
+</html>

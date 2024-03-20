@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare Option - ParallelPharmacy</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Ensure proper positioning of logo */
+  }
+  h1 {
+    color: #333;
+  }
+  .search-container {
+    margin-top: 50px;
+  }
+  .search-bar {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .search-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .search-button:hover {
+    background-color: #555;
+  }
+  .logo {
+    position: absolute;
+    top: 40px;
+    left: -180px;
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="ParallelPharmacy Logo" class="logo">
+    <h1>Compare Option</h1>
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-bar" placeholder="Enter medication name...">
+      <button onclick="searchMedication()" class="search-button">Search</button>
+    </div>
+  </div>
+
+  <script>
+    function searchMedication() {
+      var searchInput = document.getElementById("searchInput").value;
+      // Redirect to the search results page with the search input as a query parameter
+      window.location.href = "search-results.html?query=" + encodeURIComponent(searchInput);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up - ParallelPharmacy</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+  .container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  #confirmPassword {
+    margin-bottom: 20px;
+  }
+  .checkbox-label {
+    display: block;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .checkbox-label input {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  #termsLink {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .signup-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .signup-button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form id="signupForm">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="text" id="age" placeholder="Age" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      <label class="checkbox-label">
+        <input type="checkbox" id="termsCheckbox" required> <span id="termsLink">Using the website, users agree to the terms and conditions.</span>
+      </label>
+      <button type="button" class="signup-button" onclick="signUp()">Sign Up</button>
+    </form>
+  </div>
+
+  <script>
+    // Function to display terms and conditions
+    function showTerms() {
+      var terms = "Using the website, users agree to the terms and conditions.\n\n" +
+                  "1. This website deals with prescription medications.\n" +
+                  "2. Users must provide a valid prescription from a licensed physician to order any prescription medicine.\n" +
+                  "3. Users are responsible for their account security (e.g., not sharing login credentials).\n";
+      alert(terms);
+    }
+
+    // Function to validate email format
+    function validateEmail(email) {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
+    }
+
+    // Function to validate integer for age
+    function validateAge(age) {
+      var re = /^[0-9]+$/;
+      return re.test(age);
+    }
+
+    // Function to handle sign up
+    function signUp() {
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+      var termsCheckbox = document.getElementById("termsCheckbox");
+
+      if (name.trim() === '' || age.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+        alert("Please fill in all the fields.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        alert("Invalid email format!");
+        return;
+      }
+
+      if (!validateAge(age)) {
+        alert("Age must be a valid integer!");
+        return;
+      }
+
+      if (!termsCheckbox.checked) {
+        alert("Please agree to the terms and conditions.");
+        return;
+      }
+
+      // Send OTP to the user's email for verification
+      // You will need to implement this functionality using a backend service
+      // Example: You can use AJAX to send a request to your backend to handle sending OTP
+      // After receiving a response from the backend, you can proceed with user registration
+
+      // For demonstration purposes, I'll just show an alert message
+      alert("OTP sent to " + email);
+      
+      // Redirect the user to the main ParallelPharmacy webpage
+      window.location.href = "webpage.html"; // Change "main.html" to the actual URL of your main webpage
+    }
+
+    // Add event listener to the terms link to show terms and conditions
+    document.getElementById("termsLink").addEventListener("click", showTerms);
+  </script>
+</body>
+</html>
